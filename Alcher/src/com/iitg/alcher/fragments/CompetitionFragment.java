@@ -10,7 +10,6 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import com.iitg.alcher.R;
 import com.iitg.alcher.adapter.EventCustomAdapter;
@@ -42,9 +41,7 @@ public class CompetitionFragment extends Fragment{
 		recordlist.setOnItemClickListener(new OnItemClickListener() {
 			@Override           	
 			public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
-				TextView text = (TextView) view.findViewById(R.id.title);
-				String tEXT = text.getText().toString();
-				EventDetailDialog Custom_Dialog = new EventDetailDialog(getActivity(),tEXT);
+				EventDetailDialog Custom_Dialog = new EventDetailDialog(getActivity(),details.get(position).getId());
 		        Custom_Dialog.show();
 
 			}

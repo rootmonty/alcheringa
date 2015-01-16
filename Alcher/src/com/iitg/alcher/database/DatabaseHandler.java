@@ -56,7 +56,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 	@Override
 	public void onCreate(SQLiteDatabase db) {
 		String CREATE_EVENTS_TABLE = "CREATE TABLE " + TABLE_EVENTS + "("
-		+ KEY_ID + " INTEGER PRIMARY KEY," 
+		+ KEY_ID + " TEXT," 
 		+ KEY_NAME + " TEXT,"
 		+ KEY_TIME0 + " TEXT,"
 		+ KEY_TIME1 + " TEXT,"
@@ -138,7 +138,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		if (cursor.moveToFirst()) {
 			do {
 				EventObj event = new EventObj();
-				event.setId(Integer.parseInt(cursor.getString(0)));
+				event.setId(cursor.getString(0));
 				event.setName(cursor.getString(1));
 				event.setTimeDay0(cursor.getString(2));
 				event.setTimeDay1(cursor.getString(3));

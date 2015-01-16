@@ -99,6 +99,27 @@ public class MapCustomAdapter extends BaseAdapter {
 		case 16 :
 			VenueIdToSet = 2;
 			break;
+		case 17 :
+			VenueIdToSet = 7;
+			break;
+		case 18 :
+			VenueIdToSet = 7;
+			break;
+		case 19 :
+			VenueIdToSet = 5;
+			break;
+		case 20 :
+			VenueIdToSet = 1;
+			break;
+		case 21 :
+			VenueIdToSet = 6;
+			break;
+		case 22 :
+			VenueIdToSet = 5;
+			break;
+		case 23 :
+			VenueIdToSet = 6;
+			break;
 		default:
 			VenueIdToSet = 4;
 			break;

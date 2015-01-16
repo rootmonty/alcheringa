@@ -342,16 +342,20 @@ public class MainActivity extends Activity {
 			fragment = new ContactsFragment();
 			break;
 		case 8:
-			fragment = new SponsorFragment();
+			Intent intent1 = new Intent(MainActivity.this, Notifications.class);
+			startActivity(intent1);
 			break;
 		case 9:
-			Intent intent = new Intent(MainActivity.this,
+			fragment = new SponsorFragment();
+			break;
+		case 10:
+			Intent intent2 = new Intent(MainActivity.this,
 					ThankYouActivity.class);
-			intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+			intent2.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 			Bundle bndlanimation2 = ActivityOptions.makeCustomAnimation(
 					getApplicationContext(), R.anim.animation,
 					R.anim.animation2).toBundle();
-			startActivity(intent, bndlanimation2);
+			startActivity(intent2, bndlanimation2);
 			this.finish();
 			break;
 

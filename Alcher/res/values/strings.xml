@@ -44,6 +44,7 @@
         <item >Map</item>
         <item >Questions</item>
         <item >Contacts</item>
+        <item >Notifications</item>
         <item >Sponsors</item>
         <item >Exit</item>
     </string-array>
@@ -59,6 +60,7 @@
         <item>@drawable/map</item>
         <item>@drawable/questions</item>
         <item>@drawable/contacts</item>
+        <item>@drawable/dance</item>
         <item>@drawable/sponsers</item>
         <item>@drawable/exit</item>
     </array>

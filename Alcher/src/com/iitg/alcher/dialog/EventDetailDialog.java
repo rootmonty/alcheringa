@@ -32,7 +32,7 @@ public class EventDetailDialog extends Dialog
 {
 	ArrayList<String> ArrayAbout = new ArrayList<String>();
 	String data;
-	String EventName;
+	String eventId;
 	String[] valuespa;
 	Map<String, String> map = new HashMap<String, String>();
 	Map<String, String> mapContactList = new HashMap<String, String>();
@@ -64,24 +64,22 @@ public class EventDetailDialog extends Dialog
 		tab2.setIndicator("Contact");
 		tabs.addTab(tab2);
 
-		EventName = value;
+		eventId = value;
 
 
 		TextView tv_about = (TextView)findViewById(R.id.tv_about);
 		try {
 			readAboutEvent(context);
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		tv_about.setText(map.get(EventName));
+		tv_about.setText(map.get(eventId));
 
 
 		final ListView recordlist = (ListView)findViewById(R.id.listdata);
 		try {
 			readContacts(context);
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		final StableArrayAdapter adapter = new StableArrayAdapter(context, android.R.layout.simple_list_item_1, textToShow);
@@ -100,7 +98,6 @@ public class EventDetailDialog extends Dialog
 				dismiss();
 			}           
 		});
-
 
 	}
 
@@ -132,7 +129,7 @@ public class EventDetailDialog extends Dialog
 			{
 				data = inputstream.nextLine();  // gets a whole line
 				valuespa = data.split(",");
-				if(valuespa[0].equals(EventName))
+				if(valuespa[0].equals(eventId))
 				{
 					for(int i = 2;i<valuespa.length;i=i+2)
 					{

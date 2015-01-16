@@ -3,7 +3,7 @@ package com.iitg.alcher.model;
 public class EventObj {
 
 	// private variables
-	private int id;
+	private String id;
 	private String name;
 	private String timeDay0;
 	private String timeDay1;
@@ -20,10 +20,10 @@ public class EventObj {
 	}
 
 	// constructor
-	public EventObj(int id, String name, String time0,
+	public EventObj(String id, String name, String time0,
 			String time1, String time2, String time3, String venue,
 			String type, String venueid, String description) {
-		this.setId(id);
+		this.id = id;
 		this.name = name;
 		this.timeDay0 = time0;
 		this.timeDay1 = time1;
@@ -39,14 +39,14 @@ public class EventObj {
 	/**
 	 * @return the id
 	 */
-	public int getId() {
+	public String getId() {
 		return id;
 	}
 
 	/**
 	 * @param id the id to set
 	 */
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
