@@ -1,8 +1,8 @@
 package com.iitg.alcher.activities;
 
+import static com.iitg.alcher.utils.CommonUtilities.DEVELOPERS;
 import static com.iitg.alcher.utils.CommonUtilities.SENDER_ID;
 import static com.iitg.alcher.utils.CommonUtilities.SHARED_PREF_NAME;
-import static com.iitg.alcher.utils.CommonUtilities.DEVELOPERS;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -21,11 +21,9 @@ import android.app.ActivityOptions;
 import android.app.AlertDialog;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
-import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.content.res.Resources;
@@ -63,7 +61,6 @@ import com.iitg.alcher.model.NavDrawerItem;
 import com.iitg.alcher.utils.ConnectionDetector;
 import com.iitg.alcher.utils.Notifications;
 import com.iitg.alcher.utils.ServerUtilities;
-import com.iitg.alcher.utils.WakeLocker;
 
 public class MainActivity extends Activity {
 
@@ -82,35 +79,31 @@ public class MainActivity extends Activity {
 
 	public static String name;
 	public static String email;
-	public static String GCM_RECEIVER = "com.iitg.alcher.gcmReciever";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		Intent intent = getIntent();
-		String position = "NULL";
-		if (intent.hasExtra("TAB")) {
-			position = intent.getStringExtra("TAB");
-		}
-
 		setContentView(R.layout.activity_main);
 
 		initializeDirectories();
 
+		setActionBar();
+		
+		setNavigationDrawer();
 
-		actionBar = getActionBar();
-		actionBar.setBackgroundDrawable(new ColorDrawable(Color
-				.parseColor("#021819")));
-		int actionBarTitleId = Resources.getSystem().getIdentifier(
-				"action_bar_title", "id", "android");
-		if (actionBarTitleId > 0) {
-			TextView title = (TextView) findViewById(actionBarTitleId);
-			if (title != null) {
-				title.setTextColor(Color.WHITE);
-			}
+		displayView(0);
+
+		SharedPreferences prefs = this.getSharedPreferences(SHARED_PREF_NAME,0);
+		if(!prefs.getBoolean("GCM_REGISTERED", false)){
+			tryRegisterUser();
 		}
+		
+		
 
+	}
+
+	private void setNavigationDrawer() {
 		mTitle = mDrawerTitle = getTitle();
 		navMenuTitles = getResources().getStringArray(R.array.nav_drawer_items);
 		navMenuIcons = getResources()
@@ -148,8 +141,7 @@ public class MainActivity extends Activity {
 		} 
 		/* Code to increase drawer sensibility area - end */
 
-		getActionBar().setDisplayHomeAsUpEnabled(true);
-		getActionBar().setHomeButtonEnabled(true);
+		
 		mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout,
 				R.drawable.ic_drawer, // nav menu toggle icon
 				R.string.app_name, // nav drawer open - description for
@@ -171,22 +163,22 @@ public class MainActivity extends Activity {
 		};
 		mDrawerLayout.setDrawerListener(mDrawerToggle);
 
-		if (savedInstanceState == null) {
-			// on first time display view for first nav item
-			if (position.equals("NULL")) {
-				displayView(0);
-			} else {
-				displayView(Integer.parseInt(position));
+	}
 
+	private void setActionBar() {
+		actionBar = getActionBar();
+		actionBar.setBackgroundDrawable(new ColorDrawable(Color
+				.parseColor("#021819")));
+		int actionBarTitleId = Resources.getSystem().getIdentifier(
+				"action_bar_title", "id", "android");
+		if (actionBarTitleId > 0) {
+			TextView title = (TextView) findViewById(actionBarTitleId);
+			if (title != null) {
+				title.setTextColor(Color.WHITE);
 			}
 		}
-
-
-		SharedPreferences prefs = this.getSharedPreferences(SHARED_PREF_NAME,0);
-		if(!prefs.getBoolean("GCM_REGISTERED", false)){
-			tryRegisterUser();
-		}
-
+		actionBar.setDisplayHomeAsUpEnabled(true);
+		actionBar.setHomeButtonEnabled(true);
 	}
 
 	private void initializeDirectories() {

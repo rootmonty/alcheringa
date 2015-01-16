@@ -45,7 +45,6 @@
         <item >Questions</item>
         <item >Contacts</item>
         <item >Sponsors</item>
-        <item>Form </item>
         <item >Exit</item>
     </string-array>
      
@@ -61,7 +60,6 @@
         <item>@drawable/questions</item>
         <item>@drawable/contacts</item>
         <item>@drawable/sponsers</item>
-        <item>@drawable/home</item>
         <item>@drawable/exit</item>
     </array>
      

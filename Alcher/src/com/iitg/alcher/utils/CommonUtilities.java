@@ -13,4 +13,6 @@ public final class CommonUtilities {
 	public static final String SHARED_PREF_NAME = "com.iitg.alcher";
 	
 	public static final String DEVELOPERS = "Alcheringa15 App ver:2.0 \n Developed By : Vivek Bhargav & Shreyansh Sharma \n Designed By : Srujan lolla";
+	
+	public static final int AlcheringaDay0_DayOfYear = 29;
 }

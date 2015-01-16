@@ -1,5 +1,7 @@
 package com.iitg.alcher.fragments;
 
+import static com.iitg.alcher.utils.CommonUtilities.AlcheringaDay0_DayOfYear;
+
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -61,22 +63,22 @@ public class OngoingFragment extends Fragment {
 		String TimeVar;
 		switch(dayYear)
 		{
-		case 30:
+		case AlcheringaDay0_DayOfYear+0:
 			EventDay = 0;
 			TimeVar = "C_time0";
 			break;
 
-		case 31:
+		case AlcheringaDay0_DayOfYear+1:
 			EventDay = 1;
 			TimeVar = "C_time1";
 			break;
 
-		case 32:
+		case AlcheringaDay0_DayOfYear+2:
 			EventDay = 2;
 			TimeVar = "C_time2";
 			break;
 
-		case 33:
+		case AlcheringaDay0_DayOfYear+3:
 			EventDay = 3;
 			TimeVar = "C_time3";
 			break;

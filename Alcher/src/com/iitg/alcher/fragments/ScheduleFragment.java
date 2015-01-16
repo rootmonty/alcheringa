@@ -1,5 +1,7 @@
 package com.iitg.alcher.fragments;
 
+import static com.iitg.alcher.utils.CommonUtilities.AlcheringaDay0_DayOfYear;
+
 import java.util.ArrayList;
 import java.util.Calendar;
 
@@ -47,7 +49,7 @@ public class ScheduleFragment extends Fragment {
 		int dayYear = now.get(Calendar.DAY_OF_YEAR);
 		switch(dayYear)
 		{
-		case 30:
+		case AlcheringaDay0_DayOfYear+0:
 			LoadListView("0");
 			iv_day0.setBackgroundColor(Color.parseColor("#ffffff"));
         	iv_day1.setBackgroundColor(Color.parseColor("#ffffff"));
@@ -55,7 +57,7 @@ public class ScheduleFragment extends Fragment {
         	iv_day3.setBackgroundColor(Color.parseColor("#ffffff"));
 			break;
 
-		case 31:
+		case AlcheringaDay0_DayOfYear+1:
 			LoadListView("1");
 			iv_day0.setBackgroundColor(Color.parseColor("#ffffff"));
         	iv_day1.setBackgroundColor(Color.parseColor("#ffffff"));
@@ -63,7 +65,7 @@ public class ScheduleFragment extends Fragment {
         	iv_day3.setBackgroundColor(Color.parseColor("#ffffff"));
 			break;
 
-		case 32:
+		case AlcheringaDay0_DayOfYear+2:
 			LoadListView("2");
 			iv_day0.setBackgroundColor(Color.parseColor("#ffffff"));
         	iv_day1.setBackgroundColor(Color.parseColor("#ffffff"));
@@ -71,7 +73,7 @@ public class ScheduleFragment extends Fragment {
         	iv_day3.setBackgroundColor(Color.parseColor("#ffffff"));
 			break;
 
-		case 33:
+		case AlcheringaDay0_DayOfYear+3:
 			LoadListView("3");
 			iv_day0.setBackgroundColor(Color.parseColor("#ffffff"));
         	iv_day1.setBackgroundColor(Color.parseColor("#ffffff"));
