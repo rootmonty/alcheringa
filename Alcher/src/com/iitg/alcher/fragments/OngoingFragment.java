@@ -59,43 +59,40 @@ public class OngoingFragment extends Fragment {
 		}
 		String timeNow = currentHour +":"+ currentMinute;
 
-		int EventDay;
-		String TimeVar;
+		String timeVar;
 		switch(dayYear)
 		{
 		case AlcheringaDay0_DayOfYear+0:
-			EventDay = 0;
-			TimeVar = "C_time0";
+			timeVar = "C_time0";
 			break;
 
 		case AlcheringaDay0_DayOfYear+1:
-			EventDay = 1;
-			TimeVar = "C_time1";
+			timeVar = "C_time1";
 			break;
 
 		case AlcheringaDay0_DayOfYear+2:
-			EventDay = 2;
-			TimeVar = "C_time2";
+			timeVar = "C_time2";
 			break;
 
 		case AlcheringaDay0_DayOfYear+3:
-			EventDay = 3;
-			TimeVar = "C_time3";
+			timeVar = "C_time3";
 			break;
 			
 		default:
-			EventDay = 9;
-			TimeVar = "C_time3";
+			timeVar = "NULL";
 			break;
 
 		}
 		
-		String query = "SELECT  * FROM TableEvents WHERE C_day LIKE '" + '%' + EventDay + '%' + "' AND " + "SUBSTR(" + TimeVar + ",1,5) <= '" + timeNow + "' AND SUBSTR(" + TimeVar + ",7,11) >= '" + timeNow + "';";
 		recordlist = (ListView) rootView.findViewById(R.id.list_data);
 		details = new ArrayList<EventObj>();
 
-		DatabaseHandler db = new DatabaseHandler(getActivity());
-		details = db.getresultforquery(query);
+		
+		if(!timeVar.equalsIgnoreCase("NULL")){
+			DatabaseHandler db = new DatabaseHandler(getActivity());
+			String query = "SELECT  * FROM TableEvents WHERE " + timeVar + " != 'NULL' AND " + "SUBSTR(" + timeVar + ",1,5) <= '" + timeNow + "' AND SUBSTR(" + timeVar + ",7,11) >= '" + timeNow + "';";
+			details = db.getresultforquery(query);
+		}
 		recordlist.setAdapter(new EventCustomAdapter(details,getActivity()));
 
 		recordlist.setOnItemClickListener(new OnItemClickListener() {

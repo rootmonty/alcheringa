@@ -25,7 +25,6 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v4.widget.ViewDragHelper;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -193,7 +192,6 @@ ActionBar.TabListener {
 		@SuppressLint("NewApi")
 		@Override
 		public void onItemClick(AdapterView<?> parent, View view, int position,long id) {
-			Log.d("VIVEK", Integer.toString(position));
 			if(Integer.valueOf(position) == 9)
 			{
 				Intent intent = new Intent(CompetitionActivity.this, ThankYouActivity.class);
@@ -259,5 +257,5 @@ ActionBar.TabListener {
 			return super.onOptionsItemSelected(item);
 		}
 	}
-
+	
 }

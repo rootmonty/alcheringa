@@ -5,7 +5,6 @@ public class EventObj {
 	// private variables
 	private int id;
 	private String name;
-	private String day;
 	private String timeDay0;
 	private String timeDay1;
 	private String timeDay2;
@@ -21,12 +20,11 @@ public class EventObj {
 	}
 
 	// constructor
-	public EventObj(int id, String name, String day, String time0,
+	public EventObj(int id, String name, String time0,
 			String time1, String time2, String time3, String venue,
 			String type, String venueid, String description) {
 		this.setId(id);
 		this.name = name;
-		this.day = day;
 		this.timeDay0 = time0;
 		this.timeDay1 = time1;
 		this.timeDay2 = time2;
@@ -58,14 +56,6 @@ public class EventObj {
 
 	public void setName(String name) {
 		this.name = name;
-	}
-
-	public String getDay() {
-		return day;
-	}
-
-	public void setDay(String day) {
-		this.day = day;
 	}
 
 	public String getTimeDay0() {

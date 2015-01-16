@@ -116,22 +116,25 @@ public class ContactsFragment extends Fragment {
 		List<String> L_Alfaaz = new ArrayList<String>();
 		List<String> L_MysteryBox = new ArrayList<String>();
 
-		addContact(L_Dance, "Abid Haque (Over All)", "9999999999");
-		addContact(L_Dance, "Abid Haque (Over All)", "9999999999");
-		addContact(L_Dance, "Abid Haque (Over All)", "9999999999");
-		addContact(L_Dance, "Abid Haque (Over All)", "9999999999");
-		addContact(L_Dance, "Abid Haque (Over All)", "9999999999");
-
-		addContact(L_Music, "Priyank", "9999999999");
-		addContact(L_Music, "Priyank", "9999999999");
-		addContact(L_Music, "Priyank", "9999999999");
+		addContact(L_Dance, "Mounika Mantri", "+919085846384");
+		addContact(L_Dance, "Sairamkoti Amgoth", "+919085846508");
+		addContact(L_Music, "Mounika Mantri", "+919085846384");
+		addContact(L_Music, "Sairamkoti Amgoth", "+919085846508");
+		addContact(L_PerformingArts, "Mounika Mantri", "+919085846384");
+		addContact(L_PerformingArts, "Sairamkoti Amgoth", "+919085846508");
+		addContact(L_FineArts, "Mounika Mantri", "+919085846384");
+		addContact(L_FineArts, "Sairamkoti Amgoth", "+919085846508");
+		addContact(L_Sports, "Mounika Mantri", "+919085846384");
+		addContact(L_Sports, "Sairamkoti Amgoth", "+919085846508");
+		addContact(L_ClassApart, "Mounika Mantri", "+919085846384");
+		addContact(L_ClassApart, "Sairamkoti Amgoth", "+919085846508");
+		addContact(L_DigitalArts, "Mounika Mantri", "+919085846384");
+		addContact(L_DigitalArts, "Sairamkoti Amgoth", "+919085846508");
+		addContact(L_Alfaaz, "Mounika Mantri", "+919085846384");
+		addContact(L_Alfaaz, "Sairamkoti Amgoth", "+919085846508");
+		addContact(L_MysteryBox, "Mounika Mantri", "+919085846384");
+		addContact(L_MysteryBox, "Sairamkoti Amgoth", "+919085846508");
 		
-		addContact(L_PerformingArts, "Rahul", "9999999999");
-		addContact(L_PerformingArts, "Rahul", "9999999999");
-		addContact(L_PerformingArts, "Rahul", "9999999999");
-		addContact(L_PerformingArts, "Rahul", "9999999999");
-		addContact(L_PerformingArts, "Rahul", "9999999999");
-
 		listDataChild.put(listDataHeader.get(0), L_Dance); // Header, Child data
 		listDataChild.put(listDataHeader.get(1), L_Music);
 		listDataChild.put(listDataHeader.get(2), L_PerformingArts);

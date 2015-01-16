@@ -22,14 +22,13 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 	int totalEntries = 0;
 	String MyInputFile;
 	private final Context myContext;
-	private static final int DATABASE_VERSION = 1;
+	private static final int DATABASE_VERSION = 2;
 	private static final String DATABASE_NAME = "DatabaseEvents";
 	private static final String TABLE_EVENTS = "TableEvents";
 
 	// Events Table Columns names
 	private static final String KEY_ID = "C_id";
 	private static final String KEY_NAME = "C_name";
-	private static final String KEY_DAY = "C_day";
 	private static final String KEY_TIME0 = "C_time0";
 	private static final String KEY_TIME1 = "C_time1";
 	private static final String KEY_TIME2 = "C_time2";
@@ -59,7 +58,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		String CREATE_EVENTS_TABLE = "CREATE TABLE " + TABLE_EVENTS + "("
 		+ KEY_ID + " INTEGER PRIMARY KEY," 
 		+ KEY_NAME + " TEXT,"
-		+ KEY_DAY + " TEXT,"
 		+ KEY_TIME0 + " TEXT,"
 		+ KEY_TIME1 + " TEXT,"
 		+ KEY_TIME2 + " TEXT,"
@@ -113,7 +111,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 				k=0;
 				data = inputstream.nextLine();  // gets a whole line
 				valuespa = data.split(",");
-				while(k<data.length())
+				while(k<10)
 				{
 					datastore[i][k] = valuespa[k];
 					k++;
@@ -142,15 +140,14 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 				EventObj event = new EventObj();
 				event.setId(Integer.parseInt(cursor.getString(0)));
 				event.setName(cursor.getString(1));
-				event.setDay(cursor.getString(2));
-				event.setTimeDay0(cursor.getString(3));
-				event.setTimeDay1(cursor.getString(4));
-				event.setTimeDay2(cursor.getString(5));
-				event.setTimeDay3(cursor.getString(6));
-				event.setVenue(cursor.getString(7));
-				event.setType(cursor.getString(8));
-				event.setVenueId(cursor.getString(9));
-				event.setDescription(cursor.getString(10));
+				event.setTimeDay0(cursor.getString(2));
+				event.setTimeDay1(cursor.getString(3));
+				event.setTimeDay2(cursor.getString(4));
+				event.setTimeDay3(cursor.getString(5));
+				event.setVenue(cursor.getString(6));
+				event.setType(cursor.getString(7));
+				event.setVenueId(cursor.getString(8));
+				event.setDescription(cursor.getString(9));
 				// Adding event to list
 				eventList.add(event);
 			} while (cursor.moveToNext());
@@ -164,7 +161,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 	private void insertDefault(SQLiteDatabase db) {
 		for(int i=0;i<totalEntries;i++)
 		{
-			db.execSQL("INSERT INTO `TableEvents` (`C_id`, `C_name`, `C_day`, `C_time0`, `C_time1`, `C_time2`, `C_time3`, `C_venue`, `C_type`, `C_remind`, `C_description`) VALUES(" + datastore[i][0] + ","  + datastore[i][1]  + "," +  datastore[i][2]  + "," +  datastore[i][3] + "," + datastore[i][4] + "," + datastore[i][5]+ "," + datastore[i][6]+ "," + datastore[i][7]+ "," + datastore[i][8]+ "," + datastore[i][9] + "," + datastore[i][10] + ");" );
+			db.execSQL("INSERT INTO `TableEvents` (`C_id`, `C_name`, `C_time0`, `C_time1`, `C_time2`, `C_time3`, `C_venue`, `C_type`, `C_remind`, `C_description`) VALUES(" + datastore[i][0] + ","  + datastore[i][1]  + "," +  datastore[i][2]  + "," +  datastore[i][3] + "," + datastore[i][4] + "," + datastore[i][5]+ "," + datastore[i][6]+ "," + datastore[i][7]+ "," + datastore[i][8]+ "," + datastore[i][9] + ");" );
 		}
 
 	}

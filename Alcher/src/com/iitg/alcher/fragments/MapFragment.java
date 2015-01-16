@@ -1,5 +1,7 @@
 package com.iitg.alcher.fragments;
 
+import static com.iitg.alcher.utils.CommonUtilities.AlcheringaDay0_DayOfYear;
+
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -52,46 +54,44 @@ public class MapFragment extends Fragment {
 		}
 		String timeNow = currentHour +":"+ currentMinute;
 
-		int EventDay;
-		String TimeVar;
+		String timeVar;
 		switch(dayYear)
 		{
-		case 30:
-			EventDay = 0;
-			TimeVar = "C_time0";
+		case AlcheringaDay0_DayOfYear+0:
+			timeVar = "C_time0";
 			break;
 
-		case 31:
-			EventDay = 1;
-			TimeVar = "C_time1";
+		case AlcheringaDay0_DayOfYear+1:
+			timeVar = "C_time1";
 			break;
 
-		case 32:
-			EventDay = 2;
-			TimeVar = "C_time2";
+		case AlcheringaDay0_DayOfYear+2:
+			timeVar = "C_time2";
 			break;
 
-		case 33:
-			EventDay = 3;
-			TimeVar = "C_time3";
+		case AlcheringaDay0_DayOfYear+3:
+			timeVar = "C_time3";
 			break;
 			
 		default:
-			EventDay = 9;
-			TimeVar = "C_time3";
+			timeVar = "NULL";
 			break;
 
 		}
 		
 		
 
-		String query = "SELECT  * FROM TableEvents WHERE C_day LIKE '" + '%' + EventDay + '%' + "' AND " + "SUBSTR(" + TimeVar + ",1,5) <= '" + timeNow + "' AND SUBSTR(" + TimeVar + ",7,11) >= '" + timeNow + "';";
 		recordlist = (ListView) rootView.findViewById(R.id.list_view_map);
 		details = new ArrayList<EventObj>();
-		DatabaseHandler db = new DatabaseHandler(getActivity());
-		details = db.getresultforquery(query);
+		
+		if(!timeVar.equalsIgnoreCase("NULL")){
+			DatabaseHandler db = new DatabaseHandler(getActivity());
+			String query = "SELECT  * FROM TableEvents WHERE " + timeVar + " != 'NULL' AND " + "SUBSTR(" + timeVar + ",1,5) <= '" + timeNow + "' AND SUBSTR(" + timeVar + ",7,11) >= '" + timeNow + "';";
+			details = db.getresultforquery(query);
+			db.close();
+		}
+		
 		recordlist.setAdapter(new MapCustomAdapter(details,getActivity()));
-		db.close();
 
 		return rootView;
 	}

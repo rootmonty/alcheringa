@@ -91,8 +91,26 @@ public class MainActivity extends Activity {
 		setActionBar();
 		
 		setNavigationDrawer();
+		
+		
+		Intent intent = getIntent();
+		String position = "NULL";
+		if(intent.hasExtra("TAB"))
+		{
+			position = intent.getStringExtra("TAB");
+		}
+		if (savedInstanceState == null) {
+			if(position.equals("NULL"))
+			{
+				displayView(0);
+			}
+			else
+			{
+				displayView(Integer.parseInt(position));
 
-		displayView(0);
+			}
+		}
+
 
 		SharedPreferences prefs = this.getSharedPreferences(SHARED_PREF_NAME,0);
 		if(!prefs.getBoolean("GCM_REGISTERED", false)){
@@ -495,6 +513,10 @@ public class MainActivity extends Activity {
 			}
 		}
 
+	}
+	
+	public void openDrawer(){
+		mDrawerLayout.openDrawer(mDrawerList);
 	}
 
 	@Override

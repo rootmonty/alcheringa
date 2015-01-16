@@ -29,25 +29,28 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.LinearLayout;
 import android.widget.TextSwitcher;
 import android.widget.TextView;
 import android.widget.ViewSwitcher.ViewFactory;
 
 import com.iitg.alcher.R;
+import com.iitg.alcher.activities.MainActivity;
 import com.iitg.alcher.database.DatabaseHandler;
 import com.iitg.alcher.dialog.NewsDialog;
 
 public class HomeFragment extends Fragment {
 
 	private TextSwitcher mSwitcher;
+	private LinearLayout linearLayout;
 	private ArrayList<String> textToShow = new ArrayList<String>();
 	private int messageCount;
 	private int currentIndex = -1;
 	private String data;
 	private View rootView;
-	private final String file_url_schedule = "url to dropbox file containing schedule";
-	private static String file_url_news = "url to dropbox file containing news";
-
+	private final String file_url_news = "https://dl.dropboxusercontent.com/s/dgllbdp82fsyttv/news.txt?dl=1&token_hash=AAECvCXQeECMS6ZP6hia8VdpqTGl3rfFCSX-5tT7PyVXMw";
+	private final String file_url_schedule = "https://dl.dropboxusercontent.com/s/9cfjb1j70t6b8qw/schedule.csv?dl=1&token_hash=AAEvxE1JpxhLJ_DjWOUi-Qp1MLl8QHalRQHmCBwe0lI5dQ";
+	
 	public HomeFragment() {
 	}
 
@@ -56,7 +59,16 @@ public class HomeFragment extends Fragment {
 			Bundle savedInstanceState) {
 
 		rootView = inflater.inflate(R.layout.fragment_home, container, false);
-
+		linearLayout = (LinearLayout)rootView.findViewById(R.id.linearLayoutHome);
+		linearLayout.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				((MainActivity) getActivity()).openDrawer();
+			}
+		});
+		
+		
 		initialiseTextSwitcher();
 
 		try {
@@ -64,10 +76,9 @@ public class HomeFragment extends Fragment {
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
-
+		
 		new DownloadFileFromURL_SCHEDULE().execute(file_url_schedule);
 		new DownloadFileFromURL_NEWS().execute(file_url_news);
-		Log.d("hello", "yo");
 		return rootView;
 	}
 
@@ -107,8 +118,6 @@ public class HomeFragment extends Fragment {
 						SystemClock.sleep(2200);
 					}
 				} catch (Throwable t) {
-					// just end the background thread
-					Log.i("VIVEK", "Thread  exception " + t);
 				}
 			}
 
@@ -163,14 +172,13 @@ public class HomeFragment extends Fragment {
 				output.flush();
 				output.close();
 				input.close();
-				Log.d("VIVEK Dwnld", "downloaded");
 				
 				DatabaseHandler db = new DatabaseHandler(getActivity());
 				db.ManuallyUpgrade();
 				db.close();
 
 			} catch (Exception e) {
-				Log.e("Error: ", e.getMessage());
+				Log.e("Error: ", " " + e.getMessage());
 			}
 
 			return null;
