@@ -1,0 +1,14 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/AddFriend"
+        android:title="Add Friend"/>
+    <item
+        android:id="@+id/DeleteFriend"
+        android:title="Delete Friend"/>
+    <item
+        android:id="@+id/Exit"
+        android:title="Exit"/>
+    
+
+</menu>
