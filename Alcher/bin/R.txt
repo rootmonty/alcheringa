@@ -395,7 +395,7 @@ int id iv_Venue 0x7f06006b
 int id iv_arrow 0x7f06005a
 int id lblListHeader 0x7f06005b
 int id lblListItem 0x7f06005c
-int id linearLayoutHome 0x7f06004f
+int id linearLayoutHome 0x7f06004e
 int id listMode 0x7f060001
 int id list_data 0x7f06004d
 int id list_item 0x7f060029
@@ -435,7 +435,7 @@ int id showTitle 0x7f060006
 int id split_action_bar 0x7f06001e
 int id submit_area 0x7f060039
 int id tabMode 0x7f060002
-int id textSwitcher 0x7f06004e
+int id textSwitcher 0x7f06004f
 int id textView1 0x7f060051
 int id thumb_button_1 0x7f060047
 int id thumb_button_2 0x7f060048
@@ -503,9 +503,8 @@ int layout thankyou 0x7f030031
 int menu activity_android_tab_layout 0x7f0e0000
 int menu main 0x7f0e0001
 int raw aboutevents 0x7f050000
-int raw iitgmap 0x7f050001
-int raw news 0x7f050002
-int raw schedule 0x7f050003
+int raw news 0x7f050001
+int raw schedule 0x7f050002
 int string Sponsors 0x7f0b0029
 int string abc_action_bar_home_description 0x7f0b0001
 int string abc_action_bar_up_description 0x7f0b0002

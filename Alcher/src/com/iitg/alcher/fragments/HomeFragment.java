@@ -60,13 +60,7 @@ public class HomeFragment extends Fragment {
 
 		rootView = inflater.inflate(R.layout.fragment_home, container, false);
 		linearLayout = (LinearLayout)rootView.findViewById(R.id.linearLayoutHome);
-		linearLayout.setOnClickListener(new View.OnClickListener() {
-			
-			@Override
-			public void onClick(View arg0) {
-				((MainActivity) getActivity()).openDrawer();
-			}
-		});
+		linearLayout.setOnClickListener(myhandler1);
 		
 		
 		initialiseTextSwitcher();
@@ -140,8 +134,19 @@ public class HomeFragment extends Fragment {
 
 	View.OnClickListener myhandler1 = new View.OnClickListener() {
 		public void onClick(View v) {
-			Intent intent = new Intent(getActivity(), NewsDialog.class);
-			startActivity(intent);
+			int id = v.getId();
+			switch(id){
+			case R.id.textSwitcher:
+				Intent intent = new Intent(getActivity(), NewsDialog.class);
+				startActivity(intent);
+				break;
+			case R.id.linearLayoutHome:
+				((MainActivity) getActivity()).openDrawer();
+				break;
+			default:
+				break;
+			}
+			
 		}
 	};
 
