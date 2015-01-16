@@ -104,7 +104,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		FileInputStream is = null;	
 		is = new FileInputStream(yourFile);
 
-		//InputStream is = context.getResources().openRawResource(R.raw.schedule);
 		int i=0 ;
 		int k=0 ;
 		try {
@@ -114,7 +113,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 				k=0;
 				data = inputstream.nextLine();  // gets a whole line
 				valuespa = data.split(",");
-				while(k<11)
+				while(k<data.length())
 				{
 					datastore[i][k] = valuespa[k];
 					k++;

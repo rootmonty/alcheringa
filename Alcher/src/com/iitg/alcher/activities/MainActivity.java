@@ -326,7 +326,7 @@ public class MainActivity extends Activity {
 		case 8:
 			fragment = new SponsorFragment();
 			break;
-		case 10:
+		case 9:
 			Intent intent = new Intent(MainActivity.this,
 					ThankYouActivity.class);
 			intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);

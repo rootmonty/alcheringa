@@ -1,4 +1,4 @@
-package com.iitg.alcher.broadcastReceiver;
+package com.iitg.alcher.receiver;
 
 import android.content.Context;
 

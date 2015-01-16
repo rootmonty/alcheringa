@@ -152,7 +152,7 @@ public class ScheduleFragment extends Fragment {
 	
 	void LoadListView(String EventDay)
 	{
-		String query = "SELECT  * FROM TableEvents WHERE C_day LIKE '" + '%' + EventDay + '%' + "';";
+		String query = "SELECT  * FROM TableEvents WHERE C_time" + EventDay + " != 'NULL';";
 		DatabaseHandler db = new DatabaseHandler(getActivity());
 		details = db.getresultforquery(query);
 		LayoutAnimationController controller = AnimationUtils.loadLayoutAnimation(getActivity(), R.anim.list_layout_controller);
