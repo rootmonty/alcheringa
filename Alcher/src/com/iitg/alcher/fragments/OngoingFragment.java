@@ -98,10 +98,8 @@ public class OngoingFragment extends Fragment {
 		recordlist.setOnItemClickListener(new OnItemClickListener() {
 			@Override           	
 			public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
-				TextView text = (TextView) view.findViewById(R.id.title);
-				String tEXT = text.getText().toString();
-				EventDetailDialog Custom_Dialog = new EventDetailDialog(getActivity(),tEXT);
-				Custom_Dialog.show();
+				EventDetailDialog Custom_Dialog = new EventDetailDialog(getActivity(),details.get(position).getId());
+		        Custom_Dialog.show();
 
 			}
 		});
