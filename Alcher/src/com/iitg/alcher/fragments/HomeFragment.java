@@ -48,6 +48,7 @@ public class HomeFragment extends Fragment {
 	private int currentIndex = -1;
 	private String data;
 	private View rootView;
+	private Thread background;
 	private final String file_url_news = "https://dl.dropboxusercontent.com/s/dgllbdp82fsyttv/news.txt?dl=1&token_hash=AAECvCXQeECMS6ZP6hia8VdpqTGl3rfFCSX-5tT7PyVXMw";
 	private final String file_url_schedule = "https://dl.dropboxusercontent.com/s/9cfjb1j70t6b8qw/schedule.csv?dl=1&token_hash=AAEvxE1JpxhLJ_DjWOUi-Qp1MLl8QHalRQHmCBwe0lI5dQ";
 	
@@ -101,7 +102,7 @@ public class HomeFragment extends Fragment {
 		/***********************************************************/
 
 		// Create Inner Thread Class
-		Thread background = new Thread(new Runnable() {
+		background = new Thread(new Runnable() {
 
 			// After call for background.start this run method call
 			public void run() {
@@ -273,5 +274,22 @@ public class HomeFragment extends Fragment {
 		}
 		mSwitcher.setText(textToShow.get(currentIndex));
 	}
+
+//	@Override
+//	public void onResume() {
+//		Log.d("thread", "started");
+//		background.start();
+//	}
+
+	@Override
+	public void onPause() {
+		super.onPause();
+		Log.d("thread", "interuppted");
+		background.interrupt();
+	}
+	
+	
+	
+	
 
 }

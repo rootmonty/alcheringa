@@ -53,79 +53,79 @@ public class MapCustomAdapter extends BaseAdapter {
 
 		EventObj event = _data.get(position);
 		
-		int VenueIdToSet;
+		int venueIdToSet;
 		switch(Integer.parseInt(event.getVenueId()))
 		{
 		case 1 :
-			VenueIdToSet = 1;
+			venueIdToSet = 1;
 			break;
 		case 2 :
-			VenueIdToSet = 3;
+			venueIdToSet = 3;
 			break;
 		case 3 :
-			VenueIdToSet = 4;
+			venueIdToSet = 4;
 			break;
 		case 4 :
-			VenueIdToSet = 5;
+			venueIdToSet = 5;
 			break;
 		case 5 :
-			VenueIdToSet = 6;
+			venueIdToSet = 6;
 			break;
 		case 6 :
-			VenueIdToSet = 7;
+			venueIdToSet = 7;
 			break;
 		case 7 :
-			VenueIdToSet = 1;
+			venueIdToSet = 1;
 		case 8: 
-			VenueIdToSet = 1;
+			venueIdToSet = 1;
 		case 9: 
-			VenueIdToSet = 5;
+			venueIdToSet = 5;
 		case 10: 
-			VenueIdToSet = 1;
+			venueIdToSet = 1;
 		case 11: 
-			VenueIdToSet = 6;
+			venueIdToSet = 6;
 		case 12: 
-			VenueIdToSet = 7;
+			venueIdToSet = 7;
 			break;
 		case 13 :
-			VenueIdToSet = 2;
+			venueIdToSet = 2;
 			break;
 		case 14 :
-			VenueIdToSet = 2;
+			venueIdToSet = 2;
 			break;
 		case 15 :
-			VenueIdToSet = 2;
+			venueIdToSet = 2;
 			break;
 		case 16 :
-			VenueIdToSet = 2;
+			venueIdToSet = 2;
 			break;
 		case 17 :
-			VenueIdToSet = 7;
+			venueIdToSet = 7;
 			break;
 		case 18 :
-			VenueIdToSet = 7;
+			venueIdToSet = 7;
 			break;
 		case 19 :
-			VenueIdToSet = 5;
+			venueIdToSet = 5;
 			break;
 		case 20 :
-			VenueIdToSet = 1;
+			venueIdToSet = 1;
 			break;
 		case 21 :
-			VenueIdToSet = 6;
+			venueIdToSet = 6;
 			break;
 		case 22 :
-			VenueIdToSet = 5;
+			venueIdToSet = 5;
 			break;
 		case 23 :
-			VenueIdToSet = 6;
+			venueIdToSet = 6;
 			break;
 		default:
-			VenueIdToSet = 4;
+			venueIdToSet = 4;
 			break;
 		}
 		                       
-		tv_id.setText(Integer.toString(VenueIdToSet));
+		tv_id.setText(Integer.toString(venueIdToSet));
 		tv_name.setText(event.getVenue());
 		tv_event.setText(event.getName());
 

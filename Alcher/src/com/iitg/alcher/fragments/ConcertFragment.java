@@ -35,8 +35,8 @@ public class ConcertFragment extends Fragment {
 			Bundle savedInstanceState) {
 
 		rootView = inflater.inflate(R.layout.fragment_concert, container, false);
-		Button proshows = (Button)rootView.findViewById(R.id.imageButton1);
-		Button concerts = (Button)rootView.findViewById(R.id.imageButton2);
+		final Button proshows = (Button)rootView.findViewById(R.id.imageButton1);
+		final Button concerts = (Button)rootView.findViewById(R.id.imageButton2);
 		
 		String fontPath = "fonts/blendascript.ttf";
         Typeface tf = Typeface.createFromAsset(getActivity().getAssets(), fontPath);
@@ -47,8 +47,11 @@ public class ConcertFragment extends Fragment {
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
 				flag = 0;
+				concerts.setBackgroundColor(getResources().getColor(R.color.concertfocus));
+				concerts.setTextColor(getResources().getColor(R.color.black));
+				proshows.setBackground(getResources().getDrawable(R.drawable.concert_button_border));
+				proshows.setTextColor(getResources().getColor(R.color.white));
 				updateImages();
 			}
 		});
@@ -57,12 +60,19 @@ public class ConcertFragment extends Fragment {
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
 				flag = 4;
+				concerts.setBackground(getResources().getDrawable(R.drawable.concert_button_border));
+				concerts.setTextColor(getResources().getColor(R.color.white));
+				proshows.setBackgroundColor(getResources().getColor(R.color.concertfocus));
+				proshows.setTextColor(getResources().getColor(R.color.black));
 				updateImages();
 			}
 		});
 
+		concerts.setBackground(getResources().getDrawable(R.drawable.concert_button_border));
+		concerts.setTextColor(getResources().getColor(R.color.white));
+		proshows.setBackgroundColor(getResources().getColor(R.color.concertfocus));
+		proshows.setTextColor(getResources().getColor(R.color.black));
 		updateImages();
 
 		// Retrieve and cache the system's default "short" animation time.
