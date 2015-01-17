@@ -143,14 +143,10 @@ public class ScheduleFragment extends Fragment {
 		});
 
 		recordlist.setOnItemClickListener(new OnItemClickListener() {
-			@Override
-			public void onItemClick(AdapterView<?> parent, View view,
-					final int position, long id) {
-				TextView text = (TextView) view.findViewById(R.id.title);
-				String strText = text.getText().toString();
-				EventDetailDialog Custom_Dialog = new EventDetailDialog(
-						getActivity(), strText);
-				Custom_Dialog.show();
+			@Override           	
+			public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
+				EventDetailDialog Custom_Dialog = new EventDetailDialog(getActivity(),details.get(position).getId());
+		        Custom_Dialog.show();
 
 			}
 		});
