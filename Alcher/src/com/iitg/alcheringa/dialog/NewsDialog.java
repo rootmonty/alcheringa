@@ -16,6 +16,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.Environment;
+import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -36,6 +37,7 @@ public class NewsDialog extends Activity{
 		setContentView(R.layout.newsdialog);
 		
 		actionBar =  getActionBar();
+		Log.d("action bar", "initialised");
 		actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#021819")));
 		int actionBarTitleId = Resources.getSystem().getIdentifier("action_bar_title", "id", "android");
 		if (actionBarTitleId > 0) {
