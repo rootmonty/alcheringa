@@ -38,6 +38,7 @@ public class ThankYouActivity extends Activity{
 				Log.e(TAG, e.getMessage());
 			}
 			android.os.Process.killProcess(android.os.Process.myPid());
+			Log.d("Finish", "exit from app");
 		}
 
 	}
