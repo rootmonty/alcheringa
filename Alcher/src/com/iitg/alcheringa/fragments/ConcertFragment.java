@@ -25,8 +25,8 @@ public class ConcertFragment extends Fragment {
 	private int mShortAnimationDuration;
 	View rootView;
 	int flag = 4;
-	int[] myArray = {R.drawable.comesoon ,R.drawable.comesoon,R.drawable.comesoon,R.drawable.proshow0,
-			R.drawable.comesoon,R.drawable.comesoon,R.drawable.comesoon,R.drawable.pronight1};
+	int[] myArray = {R.drawable.proshow2 ,R.drawable.palotay,R.drawable.proshow3,R.drawable.proshow0,
+			R.drawable.ustad,R.drawable.blitz,R.drawable.lucky,R.drawable.pronight1};
 
 	public ConcertFragment(){}
 
