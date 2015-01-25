@@ -60,7 +60,6 @@ public class QuestionFragment extends Fragment {
 
 			@Override
 			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
 				textMessage.setText("");
 
 			}

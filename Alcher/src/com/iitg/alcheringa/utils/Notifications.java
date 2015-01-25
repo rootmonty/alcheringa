@@ -31,7 +31,6 @@ public class Notifications extends Activity{
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.notifications);
 
@@ -49,7 +48,6 @@ public class Notifications extends Activity{
 		try {
 			readnotifications();
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 

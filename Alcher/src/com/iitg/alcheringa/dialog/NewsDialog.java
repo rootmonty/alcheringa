@@ -32,7 +32,6 @@ public class NewsDialog extends Activity{
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.newsdialog);
 		
@@ -51,7 +50,6 @@ public class NewsDialog extends Activity{
 		try {
 			readnews();
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
